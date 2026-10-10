@@ -1,0 +1,32 @@
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+
+const migration=readFileSync('supabase/migrations/202608060022_add_phase_f_minimal_admin.sql','utf8');
+const edge=readFileSync('supabase/functions/admin-operations/index.ts','utf8');
+const checkout=readFileSync('supabase/functions/create-checkout-payment/index.ts','utf8');
+const settings=readFileSync('src/features/account/SettingsScreen.tsx','utf8');
+const adminScreen=readFileSync('src/features/admin/AdminScreen.tsx','utf8');
+
+assert.match(migration,/alter table public\.staff_roles enable row level security/);
+assert.match(migration,/revoke all on table public\.staff_roles from public, anon, authenticated/);
+assert.match(migration,/revoke all on table public\.staff_action_log from public, anon, authenticated/);
+assert.doesNotMatch(migration,/grant (update|delete).*staff_action_log/i);
+assert.match(migration,/auth\.role\(\)<>'service_role'/);
+assert.match(migration,/Staff cannot moderate their own account/);
+assert.match(migration,/Sold or reserved listings cannot be hidden/);
+assert.doesNotMatch(migration,/delete from public\.listings/i);
+assert.match(migration,/perform public\.resolve_order_dispute_v1/);
+assert.match(migration,/onboarding_status='enabled'/);
+assert.match(migration,/transfer_capability_status='active'/);
+assert.match(edge,/auth\.auth\.getUser\(\)/);
+assert.match(edge,/staff_roles/);
+assert.match(edge,/staff\.role!=="admin"/);
+assert.match(edge,/reconcile-order-financials/);
+assert.doesNotMatch(edge,/admin\.rpc\("get_public_seller_profile_v2"/);
+assert.doesNotMatch(edge,/stripe_account_id|transfer_amount|refund_amount/);
+assert.match(checkout,/staff_sell_restricted/);
+assert.match(checkout,/account_suspended_at/);
+assert.match(settings,/staffRole \?/);
+assert.match(adminScreen,/\['active','draft'\]\.includes\(String\(item\.status\)\)\?'hide':null/);
+assert.match(adminScreen,/item\.moderation_hidden_at\?'restore'/);
+console.log('Phase F admin security checks passed.');

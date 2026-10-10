@@ -1,0 +1,15 @@
+export const colors = {
+  background: '#F2F2F7',
+  surface: '#FFFFFF',
+  text: '#1C1C1E',
+  textSecondary: '#8E8E93',
+  textMuted: '#C7C7CC',
+  border: '#E5E5EA',
+  primary: '#E53935',
+  success: '#34C759',
+  warning: '#F59E0B',
+  info: '#007AFF',
+  overlay: 'rgba(0, 0, 0, 0.32)',
+  white: '#FFFFFF',
+  black: '#000000',
+} as const;

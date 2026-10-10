@@ -1,0 +1,71 @@
+# dependencies
+node_modules/
+
+# Expo
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+# Native
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Metro
+.metro-health-check*
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# macOS
+.DS_Store
+*.pem
+
+# local env files
+.env
+.env.*
+!.env.example
+
+# TypeScript
+*.tsbuildinfo
+
+# generated project folders
+app-example
+/ios
+/android
+
+# local QA and Supabase CLI artifacts
+Dev/
+supabase/.temp/
+supabase/.branches/
+
+# Local credentials and development configuration
+credentials.json
+credentials.*.json
+service-account*.json
+*-service-account.json
+*.keystore
+*.pfx
+*.log
+.claude/
+.codex/
+.cursor/
+.windsurf/
+.gemini/
+.copilot/
+.agents/
+.cursorignore
+.cursorrules
+.windsurfrules
+.github/copilot-instructions.md
+.github/instructions/
+AGENTS.md
+CLAUDE.md
+GEMINI.md

@@ -1,0 +1,99 @@
+# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+
+# dependencies
+node_modules/
+
+# Expo
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+# Native
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Metro
+.metro-health-check*
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# macOS
+.DS_Store
+*.pem
+
+# local env files
+.env
+.env.*
+!.env.example
+
+
+# typescript
+*.tsbuildinfo
+
+app-example
+
+# generated native folders
+/ios
+/android
+
+# Local QA captures and Supabase CLI metadata
+/Dev/
+/supabase/.temp/
+/supabase/.branches/
+
+# Local exports and build output (keep SQL migrations and fixtures)
+/build/
+/coverage/
+/exports/
+/dumps/
+*.dump
+*.sql.gz
+*.log
+
+# Credentials and signing material
+credentials.json
+credentials.*.json
+service-account*.json
+*-service-account.json
+google-services.json
+GoogleService-Info.plist
+*.keystore
+*.pfx
+*.cer
+*.crt
+id_rsa
+id_ed25519
+
+# OS and editor temporary files
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+*.tmp
+
+# Local coding-assistant configuration and sessions
+.claude/
+.codex/
+.cursor/
+.windsurf/
+.gemini/
+.copilot/
+.agents/
+.cursorignore
+.cursorrules
+.windsurfrules
+.github/copilot-instructions.md
+.github/instructions/
+AGENTS.md
+CLAUDE.md
+GEMINI.md

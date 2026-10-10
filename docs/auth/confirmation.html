@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Confirm your Shedmo email</title></head>
+<body style="margin:0;padding:24px;background:#f6f6f6;font-family:Arial,sans-serif;color:#202020">
+  <main style="max-width:520px;margin:auto;padding:32px;background:#ffffff;border-radius:12px">
+    <p style="font-size:28px;font-weight:bold;color:#EF3538;margin-top:0">Shedmo</p>
+    <h1 style="font-size:24px">Confirm your Shedmo email</h1>
+    <p>Welcome to Shedmo! Confirm your email address to finish setting up your account.</p>
+    <p style="margin:28px 0"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#EF3538;color:#ffffff;text-decoration:none;padding:14px 22px;border-radius:8px;font-weight:bold">Confirm email</a></p>
+    <p>If the button does not work, use this link:</p>
+    <p style="overflow-wrap:anywhere"><a href="{{ .ConfirmationURL }}">{{ .ConfirmationURL }}</a></p>
+    <p>If you did not create a Shedmo account, you can ignore this email.</p>
+  </main>
+</body>
+</html>
